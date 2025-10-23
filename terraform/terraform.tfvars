@@ -1,0 +1,5 @@
+kubernetes_version = "1.33"
+vpc_cidr           = "192.168.0.0/16"
+aws_region         = "us-east-1"
+cluster_name       = "web_app_cluster"
+nodes_group        = "web_app_nodes"
