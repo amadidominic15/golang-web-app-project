@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: amadidominic15/web-app
   pullPolicy: IfNotPresent
-  tag: "15502496472"
+  tag: "18818179137"
 
 ingress:
   enabled: true
