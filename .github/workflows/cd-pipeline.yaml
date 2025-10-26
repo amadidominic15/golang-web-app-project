@@ -41,8 +41,8 @@ jobs:
       - name: Initialize and Run Terraform
         id: terraform
         run: |
-            chmod +x terraform/script/terraform-run.sh
-            ./terraform/script/terraform-run.sh
+            chmod +x script/terraform-run.sh 
+            ./script/terraform-run.sh
         env:
           TERRAFORM_ACTION: ${{ env.TERRAFORM_ACTION }}
 
