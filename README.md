@@ -1,33 +1,66 @@
-# Go Web Application
+# 🌐 Golang Web Application — Cloud-Native Deployment with Terraform, Helm & GitHub Actions
 
-## testing the app locally 
-This is a simple website written in Golang. It uses the `net/http` package to serve HTTP requests.
+## 📖 Overview
+This project is a **cloud-native web application** built using **Golang** and deployed to **AWS Elastic Kubernetes Service (EKS)**.  
+It demonstrates **modern DevOps practices** such as **Infrastructure as Code (IaC)**, **Continuous Integration and Continuous Deployment (CI/CD)**, and **Kubernetes orchestration**.
 
-## Running the server
+DevOps practices include the following:
 
-To run the server, execute the following command:
+- Creating Dockerfile (Multi-stage build)
+- Containerization
+- Continuous Integration (CI)
+- Continuous Deployment (CD)
 
-```bash
-go run main.go
-```
+## ⚙️ Tech Stack  
+  | Layer                     | Tool                 | Purpose                                    |
+| ------------------------- | -------------------- | ------------------------------------------ |
+| **Application**           | Go                   | Web backend                                |
+| **Containerization**      | Docker               | Build & package the Go app                 |
+| **Orchestration**         | Kubernetes (EKS)     | Manage application workload                |
+| **Provisioning**          | Terraform            | Create EKS cluster & AWS resources         |
+| **Packaging**             | Helm                 | Simplify and manage Kubernetes deployments |
+| **CI/CD**                 | GitHub Actions       | Automate build, test, deploy               |
+| **Monitoring (optional)** | Argo CD / CloudWatch | Continuous deployment & observability      |
 
-The server will start on port 8080. You can access it by navigating to `http://localhost:8080/home` in your web browser.
+## Creating Dockerfile (Multi-stage build)
 
-## Looks like this
+The Dockerfile is used to build a Docker image. The Docker image contains the Go web application and its dependencies. The Docker image is then used to create a Docker container.
 
-![Website](static/images/golang-website.png)
+We will use a Multi-stage build to create the Docker image. The Multi-stage build is a feature of Docker that allows you to use multiple build stages in a single Dockerfile. This will reduce the size of the final Docker image and also secure the image by removing unnecessary files and packages.
+
+## 🏗️ Infrastructure Setup with Terraform (AWS EKS)
+
+Terraform automates provisioning of:
+- VPC and subnets
+- IAM roles/policies
+- EKS Cluster
+- Node groups
+
+## Continuous Integration (CI)
+
+Continuous Integration (CI) is the practice of automating the integration of code changes into a shared repository. CI helps to catch bugs early in the development process and ensures that the code is always in a deployable state.
+
+We will use GitHub Actions to implement CI for the Go web application. GitHub Actions is a feature of GitHub that allows you to automate workflows, such as building, testing, and deploying code.
+
+The GitHub Actions workflow will run the following steps:
+
+- Build and test the applictaion
+- Scan the code
+- Build and push the Docker image
+- Update helm tag
+
+## Continuous Deployment (CD)
+
+Continuous Deployment (CD) is the practice of automatically deploying code changes to a production environment. CD helps to reduce the time between code changes and deployment, allowing you to deliver new features and fixes to users faster.
+
+We will use GitHub Actions to implement CD for the Go web application. This will run on a trigger event when the CI pipeine is successful. The Helm application will deploy the Go web application to a Kubernetes cluster.
+
+The GitHub Actions workflow will run the following steps:
+
+- Infrastructure deployment
+- application deployment
 
 
-## Apllying devops principle
-
-the devops principles applied are as follws:
-  - docker for containerization building and pushing the container to docker hub
-  - kubernetes for container orchestration
-  - helm for deploying the app with ingress nginx controller for load balancing
-  - argocd for monitoring the repository
-  - github actions for continuous integration and continuous delivery
-
-After deploying the app, it can be accessed by navigating to `http://go-web-app.local` in your web browser
 
 
 
