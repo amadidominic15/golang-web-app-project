@@ -19,7 +19,7 @@ DevOps practices include the following:
 | **Orchestration**         | Kubernetes (EKS)     | Manage application workload                |
 | **Provisioning**          | Terraform            | Create EKS cluster & AWS resources         |
 | **Packaging**             | Helm                 | Simplify and manage Kubernetes deployments |
-| **CI/CD**                 | GitHub Actions       | Automate build, test, deploy               |
+| **CI/CD**                 | GitHub Actions       | Automate build, test, push, deploy         |
 
 ## Creating Dockerfile (Multi-stage build)
 
