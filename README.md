@@ -14,13 +14,12 @@ DevOps practices include the following:
 ## ⚙️ Tech Stack  
   | Layer                     | Tool                 | Purpose                                    |
 | ------------------------- | -------------------- | ------------------------------------------ |
-| **Application**           | Go                   | Web backend                                |
+| **Application**           | Go                   | Web application                            |
 | **Containerization**      | Docker               | Build & package the Go app                 |
 | **Orchestration**         | Kubernetes (EKS)     | Manage application workload                |
 | **Provisioning**          | Terraform            | Create EKS cluster & AWS resources         |
 | **Packaging**             | Helm                 | Simplify and manage Kubernetes deployments |
 | **CI/CD**                 | GitHub Actions       | Automate build, test, deploy               |
-| **Monitoring (optional)** | Argo CD / CloudWatch | Continuous deployment & observability      |
 
 ## Creating Dockerfile (Multi-stage build)
 
@@ -42,12 +41,12 @@ Continuous Integration (CI) is the practice of automating the integration of cod
 
 We will use GitHub Actions to implement CI for the Go web application. GitHub Actions is a feature of GitHub that allows you to automate workflows, such as building, testing, and deploying code.
 
-The GitHub Actions workflow will run the following steps:
+The GitHub Actions workflow will run the following jobs:
 
 - Build and test the applictaion
 - Scan the code
 - Build and push the Docker image
-- Update helm tag
+- Update image tag
 
 ## Continuous Deployment (CD)
 
@@ -55,7 +54,7 @@ Continuous Deployment (CD) is the practice of automatically deploying code chang
 
 We will use GitHub Actions to implement CD for the Go web application. This will run on a trigger event when the CI pipeine is successful. The Helm application will deploy the Go web application to a Kubernetes cluster.
 
-The GitHub Actions workflow will run the following steps:
+The GitHub Actions workflow will run the following jobs:
 
 - Infrastructure deployment
 - application deployment
